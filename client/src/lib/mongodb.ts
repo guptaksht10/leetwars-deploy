@@ -6,6 +6,8 @@ const options = {};
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
+// In production mode, it's best to not use a global variable.
+
 if (!uri) {
     // During build time, Vercel may evaluate this module. 
     // We avoid throwing here to prevent build failure.
