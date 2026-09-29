@@ -1,5 +1,6 @@
 import { getSession } from "next-auth/react";
 
+// Base URL for the backend API
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 // Storage for the current session token (set by components that have access to session)
