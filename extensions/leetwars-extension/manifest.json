@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "LeetWars Submission Monitor",
+  "version": "0.1.0",
+  "description": "Detects LeetCode submissions, polls status, fetches submission details, and records results to your backend.",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "https://leetcode.com/problems/*",
+    "https://leetcode.com/submissions/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service_worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/*"
+      ],
+      "js": [
+        "intercept.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://leetcode.com/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "http://localhost:3000/*",
+        "https://leetwars.vercel.app/*"
+      ],
+      "js": [
+        "frontendAuthScript.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "LeetWars Monitor",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}

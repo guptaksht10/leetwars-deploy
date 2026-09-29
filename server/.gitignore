@@ -1,0 +1,8 @@
+.env
+
+*.md
+*.txt
+
+/node_modules
+
+seed.js

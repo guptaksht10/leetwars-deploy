@@ -1,0 +1,13 @@
+.env
+server/.env
+client/.env
+server/node_modules
+client/node_modules
+dist  
+
+
+
+extensions/leetwars-extension/node_modules
+
+*.md
+*.pdf
